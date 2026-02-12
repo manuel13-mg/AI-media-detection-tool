@@ -12,5 +12,5 @@ pillow
 numpy
 joblib
 
-# C2PA
-c2pa
+# C2PA (optional - requires system libraries)
+# c2pa  # Uncomment if deploying with system support for libexiv2

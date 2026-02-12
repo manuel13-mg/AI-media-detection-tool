@@ -93,6 +93,10 @@ def analyze_image():
         c2pa_result = check_c2pa(filepath)
         result['layers']['c2pa'] = c2pa_result
 
+        # Check if C2PA library is available on this platform
+        if c2pa_result.get('available') == False:
+            result['layers']['c2pa']['status'] = 'unavailable'
+        
         if c2pa_result.get('c2pa_present'):
             # C2PA metadata found - this means AI generated (AI tools add C2PA marks)
             result['confidence'] = 100.0
