@@ -117,8 +117,11 @@ def analyze_image():
             
             # ========== LAYER 3: AI MODEL ==========
             time.sleep(2.0)  # Simulated model loading/inference time
+            print(f"[DEBUG] predictor is None: {predictor is None}")
             if predictor is not None:
+                print(f"[DEBUG] Calling predictor.predict({filepath})")
                 label, confidence = predictor.predict(filepath)
+                print(f"[DEBUG] Result: label={label}, confidence={confidence}")
                 confidence_percent = confidence * 100
                 
                 result['layers']['ai_model'] = {
